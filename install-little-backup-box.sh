@@ -4,15 +4,15 @@ sudo apt update && sudo apt dist-upgrade -y && sudo apt install acl git-core scr
 
 sudo mkdir /media/card
 sudo mkdir /media/storage
-sudo chown -R pi:pi /media/storage
+sudo chown -R root:root /media/storage
 sudo chmod -R 775 /media/storage
-sudo setfacl -Rdm g:pi:rw /media/storage
+sudo setfacl -Rdm g:root:rw /media/storage
 
 cd
-git clone https://github.com/dmpop/little-backup-box.git
+git clone https://github.com/EmbeddedSolutions/little-backup-box.git
 
-crontab -l | { cat; echo "@reboot sudo /home/pi/little-backup-box/backup.sh > /home/pi/little-backup-box.log"; } | crontab
-crontab -l | { cat; echo "#@reboot sudo /home/pi/little-backup-box/gphoto-backup.sh > /home/pi/gphoto-backup.log"; } | crontab
+crontab -l | { cat; echo "@reboot sudo /home/root/little-backup-box/backup.sh > /home/root/little-backup-box.log"; } | crontab
+crontab -l | { cat; echo "#@reboot sudo /home/root/little-backup-box/gphoto-backup.sh > /home/root/gphoto-backup.log"; } | crontab
 
 sudo sed -i 's|'media_dir=/var/lib/minidlna'|'media_dir=/media/storage'|' /etc/minidlna.conf
 sudo service minidlna start
