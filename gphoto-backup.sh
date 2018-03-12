@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Specify a storage device and its mount point
-STORAGE_DEV="sda1"
+STORAGE_DEV="sdc1"
 STORAGE_MOUNT_POINT="/media/storage"
 
 # Set the ACT LED to heartbeat
@@ -44,4 +44,4 @@ exiftool -r -d %Y%m%d-%H%M%S.%%e "-FileName<DateTimeOriginal" .
 # Turn off the ACT LED to indicate that the backup is completed
 sudo sh -c "echo 0 > /sys/class/leds/led0/brightness"
 # Shutdown
-shutdown -h now 
+restart -h now 
