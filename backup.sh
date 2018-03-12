@@ -6,7 +6,7 @@
 
 # Specify devices and their mount points
 # and other settings
-STORAGE_DEV="sda1" # Name of the storage device
+STORAGE_DEV="sdc1" # Name of the storage device
 STORAGE_MOUNT_POINT="/media/storage" # Mount point of the storage device
 CARD_DEV="sdb1" # Name of the storage card
 CARD_MOUNT_POINT="/media/card" # Mount point of the storage card
@@ -91,4 +91,4 @@ if [ ! -z $CARD_READER ]; then
 fi
 # Shutdown
 sync
-shutdown -h now
+restart -h now
